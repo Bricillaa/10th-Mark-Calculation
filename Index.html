@@ -1,0 +1,43 @@
+
+<html>
+<body>
+<h1> Calculate 10th marks </h1>
+<h1 id="answer"></h1>
+<h7>.</h7>
+<h7 id="answer1"></h7>
+<h7>.<h7>
+<h7 id="answer2"</h7>
+QuarterlyMarks  <input type="text" id="qm">
+<br>
+<br>
+. . HalfyearlyMarks <input type="text" id="hm">
+<br>
+<br>
+. . DaysPresent  <input type="text" id="dp">
+<br>
+<br>
+. . TotalNoOfDays  <input type="text" id="tnod">
+<br>
+<br>
+<button onclick="sum()">Calculate</button>
+<script>
+document.body.style.backgroundColor="#F0F8FF";
+function sum()
+{
+	var field1=document.getElementById("qm").value;
+	var field2=document.getElementById("hm").value;	
+	var field3=document.getElementById("dp").value;
+	var field4=document.getElementById("tnod").value;	
+	var result1=((parseFloat(field1)+parseFloat(field2))/2)*0.8;
+	var result2=((parseFloat(field4)/parseFloat(field3))*100)*0.2;  
+	var result=parseFloat(result1)+parseFloat(result2)
+	if(!isNaN(result))
+	{
+		document.getElementById("answer").innerHTML="<span id='test' style='color:#2F4F4F;'>Mark for 80 : </span>"+result1
++"<br> Mark for 20 : "+result2
++"<br> Total : "+result+"/100";
+	}
+}
+</script>
+</body>
+</html>
