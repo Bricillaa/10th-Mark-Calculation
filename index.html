@@ -1,0 +1,42 @@
+
+<html>
+<body>
+<h1> Calculate 10th marks </h1>
+<h1 id="answer"></h1>
+<h7 id="answer1"></h7>
+<h7 id="answer2"</h7>
+<table>
+<tr><td><label>Quarterly Marks</label><td><input type="text"  id="qm"  >
+<br><br>
+<tr><td><label>Halfyearly Marks </label><td><input type="text" id="hm" >
+<br><br>
+<tr><td><label> Days Present </label> <td><input type="text" id="dp">
+<br><br>
+<tr><td><label>Total No Of Working Days</label> <td> <input type="text" id="tnod" >
+<br><br>
+<tr><td><td><button onclick="sum()">Calculate</button>
+</table>
+
+<script>
+document.body.style.backgroundColor="#F0F8FF";
+function sum()
+{
+	var field1=document.getElementById("qm").value;
+	var field2=document.getElementById("hm").value;
+	var field3=document.getElementById("dp").value;
+	var field4=document.getElementById("tnod").value;
+	var result1=(((parseFloat(field1)+parseFloat(field2))/2)*0.8).toFixed(1);
+	var result11=((parseFloat(field1)+parseFloat(field2))/2).toFixed(1);
+	var r22= ((field3*100)/field4).toFixed(1);
+	var result2=(r22*0.2).toFixed(1); 
+	
+	var result=(parseFloat(result1)+parseFloat(result2)).toFixed(1);
+	if(!isNaN(result))
+	{
+		document.getElementById("answer").style.fontSize='20px'
+		document.getElementById("answer").innerHTML="<span id='test'style='color:#2F4F4F;'> Marks obtained</span>"+" : "+result11+"/100"+ "<br><span id='test' style='color:#2F4F4F;'>Mark for 80</span>"+"&emsp;&ensp;&nbsp;: "+result1+"<br><span id='test' style='color:#2F4F4F;'> Present Percent : </span>"+r22+"%"+"<br><span id='test' style='color:#2F4F4F;'> Mark for 20</span>"+"&emsp;&ensp;&nbsp;: "+result2+"<br><span id='test' style='color:#2F4F4F;'> Total</span>"+"&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;: "+result+"/100";
+	}
+}
+</script>
+</body>
+</html>
