@@ -3,38 +3,43 @@
 <body>
 <h1> Calculate 10th marks </h1>
 <h1 id="answer"></h1>
-<h7 id="answer1"></h7>
-<h7 id="answer2"</h7>
 <table>
-<tr><td><label>Quarterly Marks</label><td><input type="text"  id="qm"  >
+<tr><td><label>Quartearly Marks</label><td><input type="text"  id="quartearlyMarks">
 <br><br>
-<tr><td><label>Halfyearly Marks </label><td><input type="text" id="hm" >
+<tr><td><label>Halfyearly Marks </label><td><input type="text" id="halfearlyMarks">
 <br><br>
-<tr><td><label> Days Present </label> <td><input type="text" id="dp">
+<tr><td><label> Days Present </label> <td><input type="text" id="daysPresent">
 <br><br>
-<tr><td><label>Total No Of Working Days</label> <td> <input type="text" id="tnod" >
+<tr><td><label>Total No Of Working Days</label> <td> <input type="text" id="totalWorkingDays" >
 <br><br>
-<tr><td><td><button onclick="sum()">Calculate</button>
+<tr><td><td><button id = "Calculate" onclick = "sum(); counts()">Calculate : 0</button>
 </table>
-
 <script>
+var count = 0;
+
+function counts() {
+	var button = document.getElementById("Calculate");
+	count += 1;
+	button.innerHTML = "Calculate : " + count;
+}
+
+
 document.body.style.backgroundColor="#F0F8FF";
 function sum()
 {
-	var field1=document.getElementById("qm").value;
-	var field2=document.getElementById("hm").value;
-	var field3=document.getElementById("dp").value;
-	var field4=document.getElementById("tnod").value;
-	var result1=(((parseFloat(field1)+parseFloat(field2))/2)*0.8).toFixed(1);
-	var result11=((parseFloat(field1)+parseFloat(field2))/2).toFixed(1);
-	var r22= ((field3*100)/field4).toFixed(1);
-	var result2=(r22*0.2).toFixed(1); 
-	
-	var result=(parseFloat(result1)+parseFloat(result2)).toFixed(1);
-	if(!isNaN(result))
+	var field1=document.getElementById("quartearlyMarks").value;
+	var field2=document.getElementById("halfearlyMarks").value;
+	var field3=document.getElementById("daysPresent").value;
+	var field4=document.getElementById("totalWorkingDays").value;
+	var marksObtained=((parseFloat(field1)+parseFloat(field2))/2).toFixed(1);	
+	var markForEighty=(marksObtained*0.8).toFixed(1);
+	var presentPercentage= ((field3*100)/field4).toFixed(1);
+	var markForTwenty=(presentPercentage*0.2).toFixed(1); 
+	var totalMark=(parseFloat(markForEighty)+parseFloat(markForTwenty)).toFixed(1);
+	if(!isNaN(totalMark))
 	{
 		document.getElementById("answer").style.fontSize='20px'
-		document.getElementById("answer").innerHTML="<span id='test'style='color:#2F4F4F;'> Marks obtained</span>"+" : "+result11+"/100"+ "<br><span id='test' style='color:#2F4F4F;'>Mark for 80</span>"+"&emsp;&ensp;&nbsp;: "+result1+"<br><span id='test' style='color:#2F4F4F;'> Present Percent : </span>"+r22+"%"+"<br><span id='test' style='color:#2F4F4F;'> Mark for 20</span>"+"&emsp;&ensp;&nbsp;: "+result2+"<br><span id='test' style='color:#2F4F4F;'> Total</span>"+"&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;: "+result+"/100";
+		document.getElementById("answer").innerHTML="<span id='test'style='color:#2F4F4F;'> Marks obtained</span>"+" : "+marksObtained+"/100"+ "<br><span id='test' style='color:#2F4F4F;'>Mark for 80</span>"+"&emsp;&ensp;&nbsp;: "+markForEighty+"<br><span id='test' style='color:#2F4F4F;'> Present Percent : </span>"+presentPercentage+"%"+"<br><span id='test' style='color:#2F4F4F;'> Mark for 20</span>"+"&emsp;&ensp;&nbsp;: "+markForTwenty+"<br><span id='test' style='color:#2F4F4F;'> Total</span>"+"&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;: "+totalMark+"/100";
 	}
 }
 </script>
